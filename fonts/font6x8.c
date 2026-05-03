@@ -38,7 +38,7 @@ int print_symbol6(char* bitmask) {
 }
 
 int print_symbol_declaration(char* bitmask) {
-    printf("db %d, %d, %d, %d, %d, %d, %d, %d\n",
+    printf("db %d, %d, %d, %d, %d, %d, %d, %d",
         bitmask[0],
         bitmask[1],
         bitmask[2],
@@ -69,11 +69,12 @@ char* rotate_symbol(char n) {
 
 
 int main() {
-    print_symbol('5');
-    printf("\n");
-    char* s = rotate_symbol('5');
-    print_symbol6(s);
-    print_symbol_declaration(s);
+
+    for(int i = 32; i < 127; i++) {
+        char* s = rotate_symbol(i);
+        print_symbol_declaration(s);
+        printf("\t; '%c'\n", i);
+    }
 
     return 0;    
 }

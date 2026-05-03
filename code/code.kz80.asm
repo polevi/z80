@@ -9,4 +9,4 @@ Start:
 
 #include "editor.asm"
 
-hello:  db 'H', 'E', 'L', 'L', 'O', ',', ' ', 'W', 'O', 'R', 'L', 'D', '!', 0
+hello:  db 'H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!', 0

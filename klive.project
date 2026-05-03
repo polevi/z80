@@ -27,7 +27,32 @@
   },
   "workspaceSettings": {
     "docsWorkspace": {
-      "documents": [],
+      "documents": [
+        {
+          "type": "CodeEditor",
+          "id": "C:/Projects/z80/code/editor8x8.asm",
+          "position": {
+            "line": 8,
+            "column": 32
+          }
+        },
+        {
+          "type": "CodeEditor",
+          "id": "C:/Projects/z80/code/editor.asm",
+          "position": {
+            "line": 82,
+            "column": 22
+          }
+        },
+        {
+          "type": "CodeEditor",
+          "id": "C:/Projects/z80/code/code.kz80.asm",
+          "position": {
+            "line": 12,
+            "column": 64
+          }
+        }
+      ],
       "activeDocumentId": "C:/Projects/z80/code/editor.asm"
     },
     "Memory": {
