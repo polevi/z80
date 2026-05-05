@@ -25,11 +25,11 @@
         ld e, a
         ld d, 0
         ; in order to multiply by eight, we need to shift three times
-        rlc e
+        rla e
         rl d
-        rlc e
+        rla e
         rl d
-        rlc e
+        rla e
         rl d
         ; add offset to base
         ld hl, symbol_table_address

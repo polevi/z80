@@ -18,7 +18,15 @@
     "theme": "dark"
   },
   "debugger": {
-    "breakpoints": []
+    "breakpoints": [
+      {
+        "resource": "code/editor.asm",
+        "line": 68,
+        "exec": true,
+        "ioMask": 65535,
+        "resolvedAddress": 40072
+      }
+    ]
   },
   "builder": {
     "roots": [
@@ -32,16 +40,16 @@
           "type": "CodeEditor",
           "id": "C:/Projects/z80/code/editor8x8.asm",
           "position": {
-            "line": 8,
-            "column": 32
+            "line": 25,
+            "column": 16
           }
         },
         {
           "type": "CodeEditor",
           "id": "C:/Projects/z80/code/editor.asm",
           "position": {
-            "line": 82,
-            "column": 22
+            "line": 14,
+            "column": 14
           }
         },
         {
@@ -51,9 +59,17 @@
             "line": 12,
             "column": 64
           }
+        },
+        {
+          "type": "CodeEditor",
+          "id": "C:/Projects/z80/code/symbol_table.asm",
+          "position": {
+            "line": 3,
+            "column": 5
+          }
         }
       ],
-      "activeDocumentId": "C:/Projects/z80/code/editor.asm"
+      "activeDocumentId": "C:/Projects/z80/code/editor8x8.asm"
     },
     "Memory": {
       "topIndex": 2496,
