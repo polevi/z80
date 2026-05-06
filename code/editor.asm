@@ -38,13 +38,14 @@
         pop hl; restore screen address
         push hl
 
-        ld b, 8; counter
-        print_symbol:
-            ld a, (de)
-            ld (hl), a
-            inc de
-            inc h
-            djnz print_symbol         
+        call print_symbol_6x8
+        //ld b, 8; counter
+        //print_symbol:
+        //    ld a, (de)
+        //    ld (hl), a
+        //    inc de
+        //    inc h
+        //    djnz print_symbol         
 
         ; restore and increment
         pop hl
@@ -54,12 +55,24 @@
         jr print_string ; goto begin
 
 
+    ; hl - screen address
+    ; de - symbol bit mask
+    print_symbol_6x8:
+        ld b, 8; counter
+        print_symbol:
+            ld a, (de)
+            ld (hl), a
+            inc de
+            inc h
+            djnz print_symbol       
+        ret
+
     ; returns address in hl
     get_cursor_address:
         ld ix, variables
         ld l, (ix + 0)
         ld h, (ix + 1)
-        call get_cell_address
+        call get_cell_address_42
         ret
 
     ; x, y in hl
@@ -80,8 +93,42 @@
 
         ret 
 
+    ; x, y in hl
+    ; returns address in hl, shift in accumulator
+    get_cell_address_42:
+
+        ; l * 6 div 8
+        ld a, l
+        sla a
+        sla a
+        add l
+        add l
+        ld l, a
+        sra l
+        sra l
+        sra l ; x
+        and 7 ; mod 8, i.e. bit offset
+        push af
+        
+        ; add y div 8 * 32
+        ld a, h
+        and 7
+        rrca
+        rrca
+        rrca
+        add l
+        ld l, a
+
+        ld a, h
+        and 24
+        or 64
+        ld h, a
+
+        pop af ; bit offset in a
+        ret 
+
     variables:
-        cursor_pos_x db 0
+        cursor_pos_x db 10
         cursor_pos_y db 0
 
 .endmodule
